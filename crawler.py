@@ -54,7 +54,7 @@ class Flow(object):
                        "JJL5F": "18",
                        "JJL6F": "19",
                        "TMH": "20"}
-        self.data = {}
+        # self.data = []
 
     def _get_booking_url(self, place, date):
         """
@@ -65,7 +65,7 @@ class Flow(object):
         """
         # date_str = time.strftime("%Y-%m-%d", time.localtime())
         url_place = f"http://kjcx.nuaa.edu.cn/book/more/lib/{place}/type/4/day/{date}"
-        resp = requests.get(url_place, headers=self.headers, timeout=10)
+        resp = requests.get(url_place, headers=self.headers, timeout=15)
         resp.encoding = 'utf-8'
         # print(resp.text)
         soup = BeautifulSoup(resp.text, 'lxml')
@@ -81,12 +81,11 @@ class Flow(object):
         :return: people_info {list} [current, total]
         """
         # url = r"http://kjcx.nuaa.edu.cn/book/notice/act_id/650/type/4/lib/12"  # debug
-        resp = requests.get(url, headers=self.headers, timeout=10)  #
+        if not url:
+            raise Exception('URL is None...')
+        resp = requests.get(url, headers=self.headers, timeout=15)  
         resp.encoding = 'utf-8'
         # print(resp.text)
-        # soup = BeautifulSoup(resp.text, 'lxml')
-        # tag_people_num = soup.select('.info')[1]
-        # print(tag_people_num)
         re_people_num = re.compile(r'预约人数</b>：\[(\d+?)/(\d+?)\]')
         people_info = re_people_num.search(resp.text)
         people_info = [people_info.group(1), people_info.group(2)]
@@ -99,7 +98,7 @@ class Flow(object):
         :param date: {str} 
         :return: data_all {dict} A dict of all libraries flow data.
         """
-        data_all = {}
+        data_all = []
         for place in self.lib_id:
             place_id = self.lib_id[place]
             try:
@@ -111,8 +110,8 @@ class Flow(object):
                 print('\033[31m[ERROR]', e, '\033[0m')
                 current = ''
                 total = ''
-            data_single = dict(current=current, total=total)
-            data_all[place] = data_single
+            data_single = dict(area=place, current=current, total=total)
+            data_all.append(data_single)
         return data_all
 
 
