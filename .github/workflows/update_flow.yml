@@ -48,6 +48,6 @@ jobs:
           git config --local user.email "LibraryFlow@github.com"
           git config --local user.name "LibraryFlowBot"
           git add .
-          git push
           git commit -m "Update library flow." -a
+          git push
 
