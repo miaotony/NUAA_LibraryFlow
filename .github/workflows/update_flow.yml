@@ -36,6 +36,7 @@ jobs:
 
       - name: Update library flow
         run: |
+          export TZ=Asia/Shanghai
           python crawler.py
 
       - name: Commit files
