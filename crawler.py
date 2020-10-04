@@ -56,7 +56,6 @@ class Flow(object):
                        "JJL5F": "18",
                        "JJL6F": "19",
                        "TMH": "20"}
-        # self.data = []
 
     def _get_booking_url(self, place, date):
         """
@@ -69,15 +68,19 @@ class Flow(object):
         url_place = f"http://kjcx.nuaa.edu.cn/book/more/lib/{place}/type/4/day/{date}"
         retry_cnt = 4
         while retry_cnt > 0:
-            resp = requests.get(url_place, headers=self.headers, timeout=10)
-            resp.encoding = 'utf-8'
-            # print(resp.text)
-            soup = BeautifulSoup(resp.text, 'lxml')
-            # 提取预约链接
-            tag_url_booking = soup.select('a.btn.btn-info')[0]
-            if tag_url_booking:
-                url_booking = self.host + tag_url_booking['href']
-                return url_booking
+            try:
+                resp = requests.get(
+                    url_place, headers=self.headers, timeout=10)
+                resp.encoding = 'utf-8'
+                # print(resp.text)
+                soup = BeautifulSoup(resp.text, 'lxml')
+                # 提取预约链接
+                tag_url_booking = soup.select('a.btn.btn-info')[0]
+                if tag_url_booking:
+                    url_booking = self.host + tag_url_booking['href']
+                    return url_booking
+            except Exception as e:
+                print('\033[31m[ERROR]', e, '\033[0m')
             retry_cnt -= 1
             time.sleep(random.uniform(0.4, 0.8))
         return None
@@ -93,15 +96,18 @@ class Flow(object):
             raise Exception('URL is None...')
         retry_cnt = 4
         while retry_cnt > 0:
-            resp = requests.get(url, headers=self.headers, timeout=10)
-            resp.encoding = 'utf-8'
-            # print(resp.text)
-            re_people_num = re.compile(r'预约人数</b>：\[(\d+?)/(\d+?)\]')
-            people_info = re_people_num.search(resp.text)
-            if people_info:
-                people_info = [people_info.group(1), people_info.group(2)]
-                print(people_info)
-                return people_info
+            try:
+                resp = requests.get(url, headers=self.headers, timeout=10)
+                resp.encoding = 'utf-8'
+                # print(resp.text)
+                re_people_num = re.compile(r'预约人数</b>：\[(\d+?)/(\d+?)\]')
+                people_info = re_people_num.search(resp.text)
+                if people_info:
+                    people_info = [people_info.group(1), people_info.group(2)]
+                    print(people_info)
+                    return people_info
+            except Exception as e:
+                print('\033[31m[ERROR]', e, '\033[0m')
             retry_cnt -= 1
             time.sleep(random.uniform(0.4, 0.8))
         return []
@@ -174,14 +180,24 @@ class Flow(object):
             proc.join()
         # pr进程里是死循环，无法等待其结束，只能强行终止:
         pr_job.terminate()
-        # self.data = list(return_list)
         return list(return_list)
 
 
 if __name__ == "__main__":
     flow = Flow()
     time_start = time.time()
-    # data = flow.get_flow(date='')
-    data = flow.get_flow_parallel(date='')
+    time_now = datetime.datetime.now()
+    print("time_now: ", time_now)
+    hour = int(time_now.strftime("%H"))
+    # 超过22点则爬取下一天数据
+    if hour < 22:
+        date_str = datetime.datetime.now().strftime("%Y-%m-%d")
+    else:
+        today = datetime.datetime.now()
+        tomorrow = today+datetime.timedelta(days=1)
+        date_str = tomorrow.strftime("%Y-%m-%d")
+    print("date_str: ", date_str)
+    # data = flow.get_flow(date=date_str)
+    data = flow.get_flow_parallel(date=date_str)
     print(data)
     print(time.time()-time_start)
