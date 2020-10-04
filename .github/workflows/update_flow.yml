@@ -10,7 +10,8 @@ on:
   pull_request:
     branches: [ master ]
   schedule:
-    - cron: "*/10 6-23 * * *"
+    # 6-24 Asia/Shanghai
+    - cron: "*/5 0-16,22-23 * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,7 +23,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
@@ -37,15 +39,20 @@ jobs:
       - name: Update library flow
         run: |
           export TZ=Asia/Shanghai
-          python crawler.py
-
-      - name: Commit files
-        run: |
-          git config --local user.email "BlogArchives@github.com"
-          git config --local user.name "BlogArchivesBot"
-          git commit -m "Update library flow." -a
+          python save_data.py
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/checkout@v2
+        with: 
+          ref: data
+        run: |
+          git config --local user.email "LibraryFlow@github.com"
+          git config --local user.name "LibraryFlowBot"
+          git add .
+          git push
+          git commit -m "Update library flow." -a
+
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
