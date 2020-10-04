@@ -25,6 +25,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
         uses: actions/checkout@v2
+        with: 
+          ref: data
 
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
@@ -42,17 +44,10 @@ jobs:
           python save_data.py
 
       - name: Push changes
-        uses: actions/checkout@v2
-        with: 
-          ref: data
-      - run: |
+        run: |
           git config --local user.email "LibraryFlow@github.com"
           git config --local user.name "LibraryFlowBot"
           git add .
           git push
           git commit -m "Update library flow." -a
 
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
