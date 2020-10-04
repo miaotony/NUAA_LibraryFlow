@@ -29,7 +29,7 @@ class Flow(object):
     def __init__(self):
         self.host = r"http://kjcx.nuaa.edu.cn"
         self.headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36",
             "Accept": "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
             "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
             "Accept-Encoding": "gzip, deflate",
@@ -66,11 +66,11 @@ class Flow(object):
         """
         # date_str = time.strftime("%Y-%m-%d", time.localtime())
         url_place = f"http://kjcx.nuaa.edu.cn/book/more/lib/{place}/type/4/day/{date}"
-        retry_cnt = 4
+        retry_cnt = 5
         while retry_cnt > 0:
             try:
                 resp = requests.get(
-                    url_place, headers=self.headers, timeout=10)
+                    url_place, headers=self.headers, timeout=12)
                 resp.encoding = 'utf-8'
                 # print(resp.text)
                 soup = BeautifulSoup(resp.text, 'lxml')
@@ -83,7 +83,7 @@ class Flow(object):
                 print('\033[31m[ERROR]', e,
                       '\033[33mRetry_get_url: ', retry_cnt, '\033[0m')
             retry_cnt -= 1
-            time.sleep(random.uniform(0.4, 0.8))
+            time.sleep(random.uniform(0.5, 1))
         return None
 
     def _get_flow_from_url(self, url):
@@ -98,7 +98,7 @@ class Flow(object):
         retry_cnt = 4
         while retry_cnt > 0:
             try:
-                resp = requests.get(url, headers=self.headers, timeout=10)
+                resp = requests.get(url, headers=self.headers, timeout=12)
                 resp.encoding = 'utf-8'
                 # print(resp.text)
                 re_people_num = re.compile(r'预约人数</b>：\[(\d+?)/(\d+?)\]')
@@ -111,7 +111,7 @@ class Flow(object):
                 print('\033[31m[ERROR]', e,
                       '\033[33mRetry_get_flow: ', retry_cnt, '\033[0m')
             retry_cnt -= 1
-            time.sleep(random.uniform(0.4, 0.8))
+            time.sleep(random.uniform(0.5, 1))
         return []
 
     def _run_job(self, q, place, date):
@@ -177,7 +177,7 @@ class Flow(object):
                 target=self._run_job, args=(q, place, date))
             pw_jobs.append(p)
             p.start()
-            time.sleep(random.uniform(0.05, 0.15))
+            time.sleep(random.uniform(0.2, 0.5))
         for proc in pw_jobs:
             proc.join()
         # pr进程里是死循环，无法等待其结束，只能强行终止:
