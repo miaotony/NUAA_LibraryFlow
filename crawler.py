@@ -80,7 +80,8 @@ class Flow(object):
                     url_booking = self.host + tag_url_booking['href']
                     return url_booking
             except Exception as e:
-                print('\033[31m[ERROR]', e, '\033[0m')
+                print('\033[31m[ERROR]', e,
+                      '\033[33mRetry_get_url: ', retry_cnt, '\033[0m')
             retry_cnt -= 1
             time.sleep(random.uniform(0.4, 0.8))
         return None
@@ -107,7 +108,8 @@ class Flow(object):
                     print(people_info)
                     return people_info
             except Exception as e:
-                print('\033[31m[ERROR]', e, '\033[0m')
+                print('\033[31m[ERROR]', e,
+                      '\033[33mRetry_get_flow: ', retry_cnt, '\033[0m')
             retry_cnt -= 1
             time.sleep(random.uniform(0.4, 0.8))
         return []
