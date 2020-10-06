@@ -1,5 +1,7 @@
 # NUAA Library Flow
 
+![Update library flow](https://github.com/miaotony/NUAA_LibraryFlow/workflows/Update%20library%20flow/badge.svg?event=schedule)
+
 Crawling and visualization of human flow information in NUAA Library
 
 图书馆人流量信息爬取与可视化
