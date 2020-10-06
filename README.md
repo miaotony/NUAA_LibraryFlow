@@ -18,7 +18,7 @@ Welcome your issues and PRs!
 
 - `crawler.py`    图书馆预约系统爬虫 NUAA Library Flow Crawler  
 - `flow.py`       后端接口 backend API  
-- `save_data.py`  保存数据到本地 （最新数据 `./data/latest/<date>.json` 及全部数据 `./data/all/<date>.json`）  Save data to local storage  
+- `save_data.py`  保存数据到本地 （最新数据 `./data/latest/<date>.json` 及全部数据 `./data/all/<date>.json`）  Save data to the local storage  
 - `.github/workflows/update_flow.yml`  GitHub Action 配置文件  
 
 ---  
@@ -60,11 +60,11 @@ python3 save_data.py
 
 `https://libflow.miaotony.xyz/data/all/date.json`
 
-例如，2020-10-07的数据对应网址为：
-
-https://libflow.miaotony.xyz/data/latest/2020-10-07.json
-
-https://libflow.miaotony.xyz/data/all/2020-10-07.json
+> 例如，2020年10月7日的数据对应接口为  
+> 
+> https://libflow.miaotony.xyz/data/latest/2020-10-07.json  
+> 
+> https://libflow.miaotony.xyz/data/all/2020-10-07.json  
 
 
 **Data format 数据格式：**  
@@ -121,7 +121,7 @@ https://libflow.miaotony.xyz/data/all/2020-10-07.json
   ]
 }
 ```
-
+- `time` 当前时间  
 - `area` 区域名称（明故宫，将军路，天目湖）  
 - `now`  当前预约人数  
 - `all`  最大预约人数  
