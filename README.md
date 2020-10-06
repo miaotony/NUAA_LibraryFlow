@@ -4,7 +4,7 @@ Crawling and visualization of human flow information in NUAA Library
 
 图书馆人流量信息爬取与可视化
 
-基于[图书馆预约系统](http://kjcx.nuaa.edu.cn)
+**数据来自[图书馆预约系统](http://kjcx.nuaa.edu.cn)**  
 
 [TODO list](https://github.com/miaotony/NUAA_LibraryFlow/issues/1)  
 
@@ -46,21 +46,23 @@ python3 save_data.py
 
 ### For remote use  远程使用
 
-目前已经基于 GitHub Action 实现了图书馆预约系统数据的定时爬取，并利用 GitHub Pages 搭建了一个类似于 API 的接口。  
+目前已经基于 GitHub Action 实现了图书馆预约系统数据的定时自动爬取，并搭建了一个获取数据的接口。  
 
-**API:**  
+**API:** 
+
+均为 GET 方法。  
 
 `date` 为日期，格式如 `2020-10-07`。(`%Y-%m-%d`)  
 
-某一天的最新数据：
+某一天的最新数据：  
 
 `https://libflow.miaotony.xyz/data/latest/date.json`
 
-某一天的全部数据：  
+某一天的全部数据：   
 
 `https://libflow.miaotony.xyz/data/all/date.json`
 
-> 例如，2020年10月7日的数据对应接口为  
+> 例如，获取2020年10月7日的数据，对应接口为  
 > 
 > https://libflow.miaotony.xyz/data/latest/2020-10-07.json  
 > 
@@ -121,25 +123,25 @@ python3 save_data.py
   ]
 }
 ```
-- `time` 当前时间  
-- `area` 区域名称（明故宫，将军路，天目湖）  
-- `now`  当前预约人数  
-- `all`  最大预约人数  
+- `time`    当前时间  
+- `area`    区域名称（明故宫，将军路，天目湖）  
+- `now`     当前预约人数  
+- `all`     最大预约人数  
 
 ---  
 
 ## Copyright
 
-**网络非法外之地，本项目相关技术内容仅供学习研究，请在合理合法范围内使用！**
-**The relevant technical content of this project is only for study and research, please use within the reasonable and legal scope!**
+**网络非法外之地，本项目相关技术内容仅供学习研究，请在合理合法范围内使用！**  
+**The relevant technical content of this project is only for study and research, please use within the reasonable and legal scope!**  
 
 License:  
-[AGPL-3.0](LICENSE)
+[GNU Affero General Public License v3.0](LICENSE)  
 
 未经允许不得商用！  
 Non-commercial use!  
 
 最终解释权归本项目开发者所有。  
-The final interpretation right belongs to the developer of the project.
+The final interpretation right belongs to the developer of the project.  
 
-Copyright © 2020 [MiaoTony](https://github.com/miaotony).
+Copyright © 2020 [MiaoTony](https://github.com/miaotony).  
