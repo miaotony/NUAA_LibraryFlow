@@ -1,18 +1,13 @@
 {
-  "time": "2020-10-07 16:47:34",
+  "time": "2020-10-07 16:54:42",
   "data": [
     {
-      "area": "JJL2F",
+      "area": "JJL5F",
       "now": "",
       "all": ""
     },
     {
-      "area": "MGG4F",
-      "now": "",
-      "all": ""
-    },
-    {
-      "area": "JJL3F",
+      "area": "JJL6F",
       "now": "",
       "all": ""
     },
@@ -22,7 +17,7 @@
       "all": ""
     },
     {
-      "area": "JJL5F",
+      "area": "TMH",
       "now": "",
       "all": ""
     },
@@ -32,12 +27,17 @@
       "all": ""
     },
     {
-      "area": "TMH",
+      "area": "JJL3F",
       "now": "",
       "all": ""
     },
     {
-      "area": "JJL6F",
+      "area": "MGG4F",
+      "now": "",
+      "all": ""
+    },
+    {
+      "area": "JJL2F",
       "now": "",
       "all": ""
     },
