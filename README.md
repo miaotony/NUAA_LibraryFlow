@@ -16,6 +16,14 @@ Welcome your issues and PRs!
 
 ---  
 
+**从2020年10月12日起，图书馆暂停入馆预约，进入图书馆凭校园卡刷卡即可入馆。**
+
+**由于无法从预约系统获取数据，本项目暂停。**
+
+***20201012: This project is suspended due to the library's suspension of booking system.***
+
+---  
+
 ## File info
 
 - `crawler.py`    图书馆预约系统爬虫 NUAA Library Flow Crawler  
