@@ -1,20 +1,15 @@
 {
-  "time": "2020-11-11 06:35:17",
+  "time": "2020-11-11 06:42:19",
   "data": [
-    {
-      "area": "MGG4F",
-      "now": "0",
-      "all": "140"
-    },
     {
       "area": "MGG3F",
       "now": "0",
       "all": "205"
     },
     {
-      "area": "MGG2F",
+      "area": "MGG4F",
       "now": "0",
-      "all": "186"
+      "all": "140"
     },
     {
       "area": "JJL2F",
@@ -30,6 +25,11 @@
       "area": "JJL4F",
       "now": "0",
       "all": "260"
+    },
+    {
+      "area": "MGG2F",
+      "now": "0",
+      "all": "186"
     },
     {
       "area": "JJL5F",
