@@ -4848,5 +4848,55 @@
         "all": ""
       }
     ]
+  },
+  {
+    "time": "2020-12-09 21:56:54",
+    "data": [
+      {
+        "area": "JJL2F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "JJL4F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "MGG4F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "JJL5F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "MGG3F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "TMH",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "JJL6F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "MGG2F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "JJL3F",
+        "now": "",
+        "all": ""
+      }
+    ]
   }
 ]
