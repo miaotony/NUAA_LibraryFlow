@@ -4,5 +4,5 @@ requests
 beautifulsoup4==4.7.1
 bs4==0.0.1
 certifi==2020.4.5.1
-lxml==4.5.0
+lxml==4.6.2
 pytz==2020.1
