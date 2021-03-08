@@ -2798,5 +2798,55 @@
         "all": "320"
       }
     ]
+  },
+  {
+    "time": "2021-03-08 17:05:45",
+    "data": [
+      {
+        "area": "TMH",
+        "now": "44",
+        "all": "70"
+      },
+      {
+        "area": "JJL5F",
+        "now": "187",
+        "all": "320"
+      },
+      {
+        "area": "MGG2F",
+        "now": "177",
+        "all": "186"
+      },
+      {
+        "area": "JJL2F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "MGG4F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "JJL6F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "JJL4F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "JJL3F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "MGG3F",
+        "now": "",
+        "all": ""
+      }
+    ]
   }
 ]
