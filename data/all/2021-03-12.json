@@ -998,5 +998,55 @@
         "all": "70"
       }
     ]
+  },
+  {
+    "time": "2021-03-12 04:51:31",
+    "data": [
+      {
+        "area": "TMH",
+        "now": "7",
+        "all": "70"
+      },
+      {
+        "area": "MGG2F",
+        "now": "1",
+        "all": "186"
+      },
+      {
+        "area": "JJL6F",
+        "now": "2",
+        "all": "200"
+      },
+      {
+        "area": "JJL3F",
+        "now": "4",
+        "all": "430"
+      },
+      {
+        "area": "JJL5F",
+        "now": "4",
+        "all": "320"
+      },
+      {
+        "area": "JJL2F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "JJL4F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "MGG3F",
+        "now": "",
+        "all": ""
+      },
+      {
+        "area": "MGG4F",
+        "now": "",
+        "all": ""
+      }
+    ]
   }
 ]
