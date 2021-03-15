@@ -1,23 +1,13 @@
 {
-  "time": "2021-03-15 23:03:01",
+  "time": "2021-03-15 23:31:04",
   "data": [
     {
+      "area": "JJL3F",
+      "now": "",
+      "all": ""
+    },
+    {
       "area": "MGG4F",
-      "now": "",
-      "all": ""
-    },
-    {
-      "area": "JJL2F",
-      "now": "",
-      "all": ""
-    },
-    {
-      "area": "TMH",
-      "now": "",
-      "all": ""
-    },
-    {
-      "area": "MGG3F",
       "now": "",
       "all": ""
     },
@@ -27,7 +17,12 @@
       "all": ""
     },
     {
-      "area": "JJL3F",
+      "area": "JJL5F",
+      "now": "",
+      "all": ""
+    },
+    {
+      "area": "MGG3F",
       "now": "",
       "all": ""
     },
@@ -42,7 +37,12 @@
       "all": ""
     },
     {
-      "area": "JJL5F",
+      "area": "TMH",
+      "now": "",
+      "all": ""
+    },
+    {
+      "area": "JJL2F",
       "now": "",
       "all": ""
     }
